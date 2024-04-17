@@ -1,21 +1,21 @@
-// Function to handle form submission and tax calculation
-function handleFormSubmission(event) {
-    event.preventDefault(); // Prevent the form from submitting the default way
-    calculateDeductions(); // Calculate the deductions and tax
 
-    // Show the modal
+function handleFormSubmission(event) {
+    event.preventDefault(); 
+    calculateDeductions(); 
+
+    
     document.getElementById("taxModal").style.display = "block";
 }
 
-// Add event listener for form submission
+
 document.getElementById("deductionForm").addEventListener("submit", handleFormSubmission);
 
-// Close the modal when the close button is clicked
+
 document.querySelector(".close").addEventListener("click", function() {
     document.getElementById("taxModal").style.display = "none";
 });
 
-// Close the modal when the user clicks outside of the modal
+
 window.addEventListener("click", function(event) {
     const modal = document.getElementById("taxModal");
     if (event.target == modal) {
@@ -23,23 +23,23 @@ window.addEventListener("click", function(event) {
     }
 });
 
-// Add event listeners for hovering over question mark icons
+
 const tooltipIcons = document.querySelectorAll('.tooltip-icon');
 tooltipIcons.forEach((icon) => {
     const tooltip = icon.nextElementSibling;
 
-    // Show the tooltip when hovering over the question mark icon
+    
     icon.addEventListener('mouseenter', function() {
         tooltip.style.display = 'block';
     });
 
-    // Hide the tooltip when the mouse leaves the question mark icon
+    
     icon.addEventListener('mouseleave', function() {
         tooltip.style.display = 'none';
     });
 });
 
-// Validation and error display logic
+
 const inputs = document.querySelectorAll("input[type='text']");
 inputs.forEach(input => {
     input.addEventListener("input", function() {
@@ -49,10 +49,10 @@ inputs.forEach(input => {
 
         if (value && isNaN(value)) {
             errorIcon.style.display = "inline";
-            errorTooltip.style.display = "block"; // Show error tooltip
+            errorTooltip.style.display = "block"; 
         } else {
             errorIcon.style.display = "none";
-            errorTooltip.style.display = "none"; // Hide error tooltip
+            errorTooltip.style.display = "none"; 
         }
     });
 });
@@ -64,14 +64,14 @@ ageSelect.addEventListener("change", function() {
 
     if (!ageSelect.value) {
         errorIcon.style.display = "inline";
-        errorTooltip.style.display = "block"; // Show error tooltip
+        errorTooltip.style.display = "block"; 
     } else {
         errorIcon.style.display = "none";
-        errorTooltip.style.display = "none"; // Hide error tooltip
+        errorTooltip.style.display = "none";
     }
 });
 
-// Add event listeners for hovering over error icons
+//  event listeners for hovering over error icons
 const errorIcons = document.querySelectorAll(".error-icon");
 errorIcons.forEach((errorIcon, index) => {
     const errorTooltip = errorIcon.nextElementSibling;
@@ -84,9 +84,8 @@ errorIcons.forEach((errorIcon, index) => {
     });
 });
 
-// Sample function to calculate deductions and tax
+//  function to calculate deductions and tax
 function calculateDeductions() {
-    // Sample data extraction from form
     const grossIncome = parseFloat(document.getElementById("grossIncome").value);
     const extraIncome = parseFloat(document.getElementById("extraIncome").value);
     const otherIncome = parseFloat(document.getElementById("otherIncome").value);
@@ -95,7 +94,7 @@ function calculateDeductions() {
     // Add up all incomes
     const totalIncome = grossIncome + (extraIncome || 0) + (otherIncome || 0);
 
-    // Sample tax calculation logic
+    
     let taxRate = 0;
     if (ageGroup === "<40") {
         taxRate = 0.15;
@@ -107,7 +106,7 @@ function calculateDeductions() {
 
     const totalTax = totalIncome * taxRate;
 
-    // Display the calculation in the modal
+    // Display the calculation
     const taxDetails = document.getElementById("taxDetails");
     taxDetails.innerHTML = `
         <p>Total Income: Rs. ${totalIncome.toFixed(2)}</p>

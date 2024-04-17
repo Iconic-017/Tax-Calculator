@@ -64,7 +64,7 @@ body {
   .error-tooltip {
     display: none;
     position: absolute;
-    top: 100%; /* Position tooltip below the error icon */
+    top: 100%; 
     left: 50%;
     transform: translateX(-50%);
     background-color: #f00;
@@ -97,7 +97,6 @@ body {
     background-color: #218838;
   }
 
-  /* Modal styling */
   .modal {
     display: none;
     position: fixed;
