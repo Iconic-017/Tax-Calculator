@@ -110,8 +110,9 @@ function calculateDeductions() {
     // Display the calculation in the modal
     const taxDetails = document.getElementById("taxDetails");
     taxDetails.innerHTML = `
-        <p>Total Income: Rs.${totalIncome.toFixed(2)}</p>
+        <p>Total Income: Rs. ${totalIncome.toFixed(2)}</p>
         <p>Tax Rate: ${taxRate * 100}%</p>
-        <p>Total Tax: Rs.${totalTax.toFixed(2)}</p>
+        <p>Total Tax: Rs. ${totalTax.toFixed(2)}</p>
+        <p><b>Your Over all income after TAX deduction is :Rs. ${totalIncome.toFixed(2) - totalTax.toFixed(2)}</b></p>
     `;
 }
