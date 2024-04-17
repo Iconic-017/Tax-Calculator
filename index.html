@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Deduction Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="deductionForm">
+      <h1>Tax Deduction Calculator</h1>
+      <label for="grossIncome">Enter gross annual income:
+        <span class="tooltip-icon" data-tooltip="Gross annual income before any deductions.">?</span>
+        <span class="tooltip-text" id="grossIncomeTooltip">Gross annual income is your total salary in a year before any deductions</span>
+      </label>
+      <div style="position: relative;">
+        <input type="text" id="grossIncome" placeholder="Enter gross annual income" required>
+        <span class="error-icon" id="grossIncomeError">!</span>
+        <span class="error-tooltip">Please enter a numeric value.</span>
+      </div>
+
+      <label for="extraIncome">Enter extra income:
+        <span class="tooltip-icon" data-tooltip="Any additional income you have received.">?</span>
+        <span class="tooltip-text" id="extraIncomeTooltip">Enter any additional income you have received.</span>
+      </label>
+      <div style="position: relative;">
+        <input type="text" id="extraIncome" placeholder="Enter extra income">
+        <span class="error-icon" id="extraIncomeError">!</span>
+        <span class="error-tooltip">Please enter a numeric value.</span>
+      </div>
+
+      <label for="otherIncome">Enter income from other sources:
+        <span class="tooltip-icon" data-tooltip="Income from other sources such as investments or freelance work.">?</span>
+        <span class="tooltip-text" id="otherIncomeTooltip">Enter income from other sources such as investments or freelance work.</span>
+      </label>
+      <div style="position: relative;">
+        <input type="text" id="otherIncome" placeholder="Enter income from other sources">
+        <span class="error-icon" id="otherIncomeError">!</span>
+        <span class="error-tooltip">Please enter a numeric value.</span>
+      </div>
+
+      <label for="ageGroup">Select age group:
+        <span class="tooltip-icon" data-tooltip="Choose your age group from the options.">?</span>
+        <span class="tooltip-text" id="ageGroupTooltip">Choose your age group from the options.</span>
+      </label>
+      <div style="position: relative;">
+        <select id="ageGroup">
+          <option value="" disabled selected>Select age group</option>
+          <option value="<40"><40</option>
+          <option value="40to59">≥40 & <60</option>
+          <option value="≥60">≥60</option>
+        </select>
+        <span class="error-icon" id="ageGroupError">!</span>
+        <span class="error-tooltip">Please select an age group.</span>
+      </div>
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+
+  <!-- Modal for showing final values -->
+  <div id="taxModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Tax Calculation</h2>
+      <p id="taxDetails"></p>
+    </div>
+  </div>  
+
+
+
+  <script src="app.js"></script>
+</body>
+</html>
